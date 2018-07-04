@@ -43,17 +43,8 @@ public class JhyController {
 	@RequestMapping(value="/login_in.mvc")
 	public String login_in(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
-		String id = request.getParameter("user-id");
-		String pw = request.getParameter("user-pw");
-		
-		model.addAttribute("id", id);
-		model.addAttribute("pw", pw);
-		
-		String a = request.getContextPath();
-
-		model.addAttribute("a", a);
-		
-		return "main/main";
+		return "sign-in/sign-in";
 		
 	}
+	
 }
