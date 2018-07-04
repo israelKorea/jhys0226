@@ -1,28 +1,26 @@
 package com.pops.jhyproject.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
+public class JhyController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(JhyController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -34,6 +32,28 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}*/
+	
+	@RequestMapping(value="/")
+	public String board(Model model) {
+		
+		return "main/carousel";
 	}
 	
+	@RequestMapping(value="/login_in.mvc")
+	public String login_in(HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+		String id = request.getParameter("user-id");
+		String pw = request.getParameter("user-pw");
+		
+		model.addAttribute("id", id);
+		model.addAttribute("pw", pw);
+		
+		String a = request.getContextPath();
+
+		model.addAttribute("a", a);
+		
+		return "main/main";
+		
+	}
 }
