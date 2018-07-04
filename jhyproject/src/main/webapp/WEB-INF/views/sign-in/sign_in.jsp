@@ -23,9 +23,9 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <a href="">Sign-up</a>
-  	<a href="">forgot password</a>
+   	<br>
+   	<a href="/sign_up.mvc">Sign-up</a><br>
+   	<a href="/reset_password.mvc">forgot password</a>
   </form>
-  
 </body>
 </html>

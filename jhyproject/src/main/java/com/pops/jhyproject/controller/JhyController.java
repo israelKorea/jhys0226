@@ -17,23 +17,6 @@ public class JhyController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(JhyController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	/*@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}*/
-	
 	@RequestMapping(value="/")
 	public String board(Model model) {
 		
@@ -43,8 +26,25 @@ public class JhyController {
 	@RequestMapping(value="/login_in.mvc")
 	public String login_in(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
-		return "sign-in/sign-in";
+		return "sign-in/sign_in";
 		
+	}
+	
+	@RequestMapping(value="/sign_up.mvc")
+	public String sign_up() {
+		
+		return "sign-in/sign_up";
+	}
+	
+	@RequestMapping(value="/reset_password.mvc")
+	public String reset_password() {
+		
+		return "sign-in/reset_password";
+	}
+	
+	@RequestMapping(value="/sendEmail.mvc")
+	public void sendEmail() {
+		System.out.println("email ");
 	}
 	
 }
